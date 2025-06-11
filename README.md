@@ -1,6 +1,6 @@
-# SAMP - Scalable AI Microservice Platform
+# STOMP - Scalable Telemetry & Operations Management Platform
 ## By Elliot Hong
 
-SAMP is a modular, containerized platform for deploying AI inference services at scale. It provides a secure, observable, and cloud-ready architecture built on microservices. Designed with real-world MLOps and infrastructure challenges in mind, SAMP aims to streamline model serving, authentication, and system monitoring in production environments.
+STOMP simulates a secure, AI-assisted operations monitoring system inspired by real-world needs in utilities, defense, and/or autonomous systems. Its aim is to replicate a modular, scalable platform that handles telemetry data, detects anomalies, and integrates alerting and monitoring — mimicking enterprise-level observability and security architectures.
 
 --additional descriptions to come as project progresses--
