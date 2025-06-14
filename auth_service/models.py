@@ -1,20 +1,10 @@
-from pydantic import BaseModel
-import bcrypt
+from sqlalchemy import Column, Integer, String
+from database import Base
 
-class User(BaseModel):
-    username: str
-    role: str
+class User(Base):
+    __tablename__ = "users"
 
-#temp user db with "hashed" passwords
-fake_users_db = {
-    "admin_user": {
-        "username": "admin_user",
-        "role": "admin",
-        "hashed_password": bcrypt.hashpw("admin123".encode(), bcrypt.gensalt()).decode()
-    },
-    "observer_user": {
-        "username": "observer_user",
-        "role": "observer",
-        "hashed_password": bcrypt.hashpw("observer123".encode(), bcrypt.gensalt()).decode()
-    }
-}
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    role = Column(String, nullable=False)
