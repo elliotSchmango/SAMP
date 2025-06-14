@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  auth_service:
+    build: ./auth_service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./auth_service:/app
+    env_file:
+      - .env
