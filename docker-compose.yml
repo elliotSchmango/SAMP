@@ -27,5 +27,10 @@ services:
     ports:
       - "9000:9000"
 
+  ml_service:
+    build: ./ml_service
+    ports:
+      - "9100:9100"
+
 volumes:
   pgdata:
