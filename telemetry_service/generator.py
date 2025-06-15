@@ -3,6 +3,13 @@ import time
 import json
 from datetime import datetime
 
+import random
+import time
+import json
+from datetime import datetime
+import requests
+
+#dummy data
 def generate_fake_telemetry():
     telemetry = {
         "timestamp": datetime.utcnow().isoformat(),
@@ -13,8 +20,13 @@ def generate_fake_telemetry():
     }
     return telemetry
 
+#updated to send to ml_service
 def stream_telemetry(interval=2):
     while True:
         data = generate_fake_telemetry()
-        print(json.dumps(data), flush=True)
+        try:
+            response = requests.post("http://ml_service:9100/ingest", json=data)
+            print(f"Posted: {data} | Status: {response.status_code}")
+        except Exception as e:
+            print(f"Error sending telemetry: {e}")
         time.sleep(interval)
